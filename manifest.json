@@ -2,8 +2,12 @@
   "manifest_version": 3,
   "name": "Rabiscador de Questões Tecconcursos",
   "version": "1.2.0",
-  "description": "Rabiscar ao resolver questões no Tecconcursos.",
+  "description": "Rabiscar ao resolver questões no Tecconcursos",
   "author": "Italo Oliveira",
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png"
+  },
   "content_scripts": [
     {
       "matches": [
@@ -14,5 +18,10 @@
       "css": ["styles.css"],
       "run_at": "document_idle"
     }
-  ]
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "rabiscador-tecconcursos@italooliveira.com"
+    }
+  }
 }
