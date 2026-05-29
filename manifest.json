@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Rabiscador de Questões Tecconcursos",
+  "version": "1.2.0",
+  "description": "Rabiscar ao resolver questões no Tecconcursos.",
+  "author": "Italo Oliveira",
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.tecconcursos.com.br/*",
+        "*://tecconcursos.com.br/*"
+      ],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

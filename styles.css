@@ -1,0 +1,154 @@
+/* Wrapper — alinha com os botões nativos da barra */
+#rab-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  margin: 0 0 0 2px;
+  padding: 0;
+  vertical-align: middle;
+  line-height: 0;
+}
+
+.rab-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  min-height: 32px !important;
+  border-radius: 4px !important;
+  border: 1px solid #ccc !important;
+  background: #fff !important;
+  cursor: pointer !important;
+  font-size: 15px !important;
+  line-height: 1 !important;
+  padding: 0 !important;
+  margin: 0 1px !important;
+  box-sizing: border-box !important;
+  vertical-align: middle !important;
+  user-select: none !important;
+  position: relative !important;
+  flex-shrink: 0 !important;
+  transition: background .12s, border-color .12s !important;
+}
+
+.rab-btn:hover {
+  background: #f0f0f0 !important;
+  border-color: #999 !important;
+}
+
+/* Estados Ativos */
+#rab-toggle.rab-on {
+  background: #c0392b !important;
+  border-color: #922b21 !important;
+  color: #fff !important;
+  animation: rab-pulse 1.8s infinite;
+}
+
+#rab-toggle.rab-on svg {
+  stroke: #fff !important;
+}
+
+@keyframes rab-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(192,57,43,.5); }
+  50%      { box-shadow: 0 0 0 6px rgba(192,57,43,0); }
+}
+
+#rab-borracha.rab-on {
+  background: #d68910 !important;
+  border-color: #b7770d !important;
+}
+
+#rab-borracha.rab-on svg {
+  stroke: #fff !important;
+}
+
+/* Menu Popup de Cores */
+#rab-popup {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 18px rgba(0,0,0,.2);
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 2147483647;
+  min-width: 140px;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 12px;
+  color: #333;
+  white-space: nowrap;
+}
+
+#rab-popup.rab-open {
+  display: flex;
+}
+
+.rab-pop-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.rab-dot {
+  width: 20px; height: 20px; border-radius: 50%;
+  cursor: pointer; border: 3px solid transparent;
+  flex-shrink: 0; transition: transform .1s, border-color .1s;
+}
+
+.rab-dot:hover   { transform: scale(1.2); }
+.rab-dot.rab-sel { border-color: #222; }
+
+.rab-slider {
+  -webkit-appearance: none; appearance: none;
+  width: 90px; height: 4px; background: #ddd;
+  border-radius: 4px; outline: none; cursor: pointer;
+}
+
+.rab-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: #555; cursor: pointer;
+}
+
+#rab-mini-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  position: absolute; bottom: 3px; right: 3px;
+  border: 1px solid rgba(0,0,0,.25);
+  pointer-events: none;
+}
+
+/* Área de Desenho (Canvas) */
+#rabisco-canvas {
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 2147483640;
+  pointer-events: none !important;
+}
+
+/* cursores dinâmicos no Body */
+body.rab-modo-desenho,
+body.rab-modo-desenho * {
+  cursor: crosshair !important;
+  user-select: none !important;
+}
+
+body.rab-modo-borracha,
+body.rab-modo-borracha * {
+  cursor: cell !important;
+  user-select: none !important;
+}
+
+body.rab-modo-desenho .rab-btn, body.rab-modo-borracha .rab-btn,
+body.rab-modo-desenho a,        body.rab-modo-borracha a,
+body.rab-modo-desenho button,   body.rab-modo-borracha button,
+body.rab-modo-desenho input,    body.rab-modo-borracha input {
+  cursor: pointer !important;
+  user-select: auto !important;
+}
